@@ -12,7 +12,7 @@ jobs:
         run: sudo apt install scrot
 
       - name: Test Screenshot
-        run: scrot -u test.png
+        run: DISPLAY=:0 scrot -u test.png
 
       - name: Save image
         uses: actions/upload-artifact@v3
