@@ -1,0 +1,22 @@
+name: Test
+
+on: ['push']
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    name: Test
+
+    steps:
+      - name: Install scrot
+        run: sudo apt install scrot
+
+      - name: Test Screenshot
+        run: scrot -u test.png
+
+      - name: Save image
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-coverage-report
+          path: test.png
+
